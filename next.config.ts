@@ -4,7 +4,8 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: "/hotstartvc-website",
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "./src/lib/image-loader.ts",
   },
 };
 
