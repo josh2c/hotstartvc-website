@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Thesis() {
   return (
     <section className="relative overflow-hidden bg-muted px-6 py-24 lg:px-8">
@@ -45,24 +47,14 @@ export default function Thesis() {
             </svg>
           </div>
 
-          {/* Main image placeholder */}
-          <div className="aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl bg-gray-200">
-            <div className="flex h-full items-center justify-center text-foreground/30">
-              <svg
-                width="64"
-                height="64"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                <circle cx="8.5" cy="8.5" r="1.5" />
-                <polyline points="21 15 16 10 5 21" />
-              </svg>
-            </div>
+          {/* Main image */}
+          <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl">
+            <Image
+              src="/hero-image.jpg"
+              alt="MrBeast Burger grand opening event with massive crowd"
+              fill
+              className="h-full w-full object-cover"
+            />
           </div>
 
           {/* Decorative badge — bottom left */}

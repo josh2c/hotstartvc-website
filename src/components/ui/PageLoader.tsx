@@ -5,36 +5,51 @@ import Image from "next/image";
 
 const SESSION_KEY = "hotstart-loader-seen";
 
-function hasSeenLoader(): boolean {
-  try {
-    return sessionStorage.getItem(SESSION_KEY) === "1";
-  } catch {
-    return false;
-  }
-}
-
-function markLoaderSeen(): void {
-  try {
-    sessionStorage.setItem(SESSION_KEY, "1");
-  } catch {
-    // Silently fail — loader shows every time if storage unavailable
-  }
-}
-
 export default function PageLoader() {
   const [done, setDone] = useState(false);
-  const [hidden, setHidden] = useState(() => hasSeenLoader());
+  const [hidden, setHidden] = useState(true);
+  const [percent, setPercent] = useState(0);
 
   useEffect(() => {
-    if (hasSeenLoader()) return;
+    // Check sessionStorage only on the client, inside useEffect
+    try {
+      if (sessionStorage.getItem(SESSION_KEY) === "1") return;
+    } catch {
+      // sessionStorage unavailable — show loader
+    }
 
-    markLoaderSeen();
+    // First visit this session — show the loader
+    setHidden(false);
+
+    // Count up from 0 to 100 over 900ms (synced with CSS progress bar)
+    const duration = 900;
+    const interval = 30;
+    const steps = duration / interval;
+    const increment = 100 / steps;
+    let current = 0;
+
+    const counter = setInterval(() => {
+      current += increment;
+      if (current >= 100) {
+        current = 100;
+        clearInterval(counter);
+      }
+      setPercent(Math.round(current));
+    }, interval);
 
     // 900ms CSS animation + 200ms hold, then fade out over 500ms
     const holdTimer = setTimeout(() => setDone(true), 1100);
-    const hideTimer = setTimeout(() => setHidden(true), 1600);
+    const hideTimer = setTimeout(() => {
+      try {
+        sessionStorage.setItem(SESSION_KEY, "1");
+      } catch {
+        // silently fail
+      }
+      setHidden(true);
+    }, 1600);
 
     return () => {
+      clearInterval(counter);
       clearTimeout(holdTimer);
       clearTimeout(hideTimer);
     };
@@ -64,6 +79,11 @@ export default function PageLoader() {
       <div className="w-48 h-[2px] bg-black/10 rounded-full overflow-hidden">
         <div className="h-full bg-[#0a0a0a] rounded-full animate-loader-progress" />
       </div>
+
+      {/* Percentage counter */}
+      <p className="mt-4 text-sm font-medium tabular-nums text-[#0a0a0a]/60">
+        {percent}%
+      </p>
     </div>
   );
 }
