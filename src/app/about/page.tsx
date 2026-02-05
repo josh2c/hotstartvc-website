@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import ScrollRevealText from "@/components/ui/ScrollRevealText";
 import HorizontalScrollText, { type FloatingCard } from "@/components/ui/HorizontalScrollText";
+import EmojiBurst from "@/components/ui/EmojiBurst";
 
 
 const scrollCards: FloatingCard[] = [
@@ -174,64 +174,100 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Purpose — sticky scroll reveal */}
-        <section className="relative">
+        {/* Our Purpose */}
+        <EmojiBurst className="px-6 py-24 md:py-32 lg:px-8">
           <div className="mx-auto max-w-7xl">
-            <ScrollRevealText
-              segments={[
-                { type: "word", value: "At" },
-                { type: "word", value: "HotStart" },
-                { type: "word", value: "VC," },
-                { type: "word", value: "our" },
-                { type: "word", value: "focus" },
-                { type: "word", value: "is" },
-                { type: "word", value: "clear:" },
-                { type: "word", value: "we" },
-                { type: "word", value: "invest" },
-                { type: "word", value: "in" },
-                { type: "word", value: "celebrity-founded" },
-                { type: "word", value: "brands" },
-                { type: "emoji", value: "🚀" },
-                { type: "word", value: "that" },
-                { type: "word", value: "have" },
-                { type: "word", value: "a" },
-                { type: "word", value: "unique" },
-                { type: "word", value: "and" },
-                { type: "word", value: "differentiated" },
-                { type: "word", value: "product-market-fit." },
-                { type: "emoji", value: "🎯" },
-                { type: "word", value: "For" },
-                { type: "word", value: "us," },
-                { type: "word", value: "celebrities" },
-                { type: "word", value: "encompass" },
-                { type: "word", value: "a" },
-                { type: "word", value: "broad" },
-                { type: "word", value: "spectrum—ranging" },
-                { type: "word", value: "from" },
-                { type: "word", value: "influencers" },
-                { type: "emoji", value: "📱" },
-                { type: "word", value: "and" },
-                { type: "word", value: "creators" },
-                { type: "word", value: "to" },
-                { type: "word", value: "athletes," },
-                { type: "emoji", value: "⚡" },
-                { type: "word", value: "actors," },
-                { type: "emoji", value: "🎬" },
-                { type: "word", value: "musicians," },
-                { type: "emoji", value: "🎵" },
-                { type: "word", value: "and" },
-                { type: "word", value: "others" },
-                { type: "word", value: "who" },
-                { type: "word", value: "wield" },
-                { type: "word", value: "substantial" },
-                { type: "word", value: "influence" },
-                { type: "word", value: "over" },
-                { type: "word", value: "their" },
-                { type: "word", value: "followers." },
-                { type: "emoji", value: "🌟" },
-              ]}
-              className="mt-6 max-w-4xl text-center text-3xl font-semibold leading-snug tracking-tight md:text-4xl lg:text-5xl"
-            />
+            <p className="relative z-20 mx-auto max-w-4xl text-center text-3xl font-semibold leading-snug tracking-tight text-foreground md:text-4xl lg:text-5xl">
+              At HotStart VC, our focus is clear: we invest in celebrity-founded brands that have a unique and differentiated product-market-fit. For us, celebrities encompass a broad spectrum—ranging from influencers and creators to athletes, actors, musicians, and others who wield substantial influence over their followers.
+            </p>
+          </div>
+        </EmojiBurst>
+
+        {/* The Celebrity Advantage */}
+        <section className="relative bg-background px-6 py-24 md:py-32 lg:px-8">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
+              {/* Left Column - Image */}
+              <div className="relative">
+                <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-foreground/5">
+                  <Image
+                    src="/hero-image.webp"
+                    alt="Celebrity founders building brands"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Right Column - Content */}
+              <div>
+                <p className="text-sm font-medium uppercase tracking-widest text-foreground/40">
+                  Our Thesis
+                </p>
+                <h2 className="mt-4 text-3xl font-bold tracking-tight md:text-4xl lg:text-5xl">
+                  The Celebrity Distribution Advantage
+                </h2>
+
+                <p className="mt-6 text-base leading-relaxed text-foreground/60 md:text-lg">
+                  Consumers today are drawn to products from celebrities they admire and feel connected to. Their inherent distribution advantage—access to millions of followers—enables them to bypass conventional marketing and instantly build global brands.
+                </p>
+
+                {/* Bullet Points */}
+                <div className="mt-8 space-y-6">
+                  <div className="flex gap-4">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#a8e6cf] text-sm">
+                      💰
+                    </span>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Zero Marketing Spend</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/60">
+                        Traditional brands spend millions on customer acquisition. Celebrity founders reach millions organically through their existing platforms.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#f4b8c1] text-sm">
+                      🤝
+                    </span>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Built-In Trust</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/60">
+                        Followers already have an emotional connection to the founder, creating instant credibility that money can&apos;t buy.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-4">
+                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#c3b1e1] text-sm">
+                      ⚡
+                    </span>
+                    <div>
+                      <h4 className="font-semibold text-foreground">Speed to Scale</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-foreground/60">
+                        What takes traditional brands a decade, celebrity-founded companies achieve in years—competing with conglomerates almost overnight.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="/portfolio"
+                    className="inline-flex items-center rounded-full bg-foreground px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+                  >
+                    View Portfolio
+                  </a>
+                  <a
+                    href="/contact"
+                    className="inline-flex items-center rounded-full border border-border px-6 py-3 text-sm font-medium text-foreground transition-colors hover:border-foreground/40"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -248,7 +284,7 @@ export default function AboutPage() {
         <section data-navbar-color="#ffffff" className="relative z-[1] bg-background px-6 py-24 md:py-32 lg:px-8">
           <div className="mx-auto max-w-6xl">
             {/* Section Heading */}
-            <h2 className="text-4xl font-extrabold italic tracking-tight md:text-5xl lg:text-6xl">
+            <h2 className="text-4xl font-extrabold tracking-tight md:text-5xl lg:text-6xl">
               Uniquely positioned
               <br />
               to invest
