@@ -16,7 +16,7 @@ export default function BlogPage() {
       <Navbar />
       <main className="relative min-h-screen bg-background text-foreground">
         {/* Page header */}
-        <div className="px-6 pt-32 pb-12 lg:px-8">
+        <div className="px-6 pt-28 pb-12 md:pt-36 lg:px-8">
           <div className="mx-auto max-w-7xl">
             <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
               Blog

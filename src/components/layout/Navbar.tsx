@@ -42,7 +42,7 @@ export default function Navbar({ variant = "light" }: { variant?: "light" | "dar
 
   return (
     <header
-      className={`relative z-50 transition-colors duration-500 ${navColor ? "" : defaultBg}`}
+      className={`sticky top-0 z-50 transition-colors duration-500 ${navColor ? "" : defaultBg}`}
       style={navColor ? { backgroundColor: navColor } : undefined}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">

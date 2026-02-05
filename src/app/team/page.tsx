@@ -15,8 +15,8 @@ export default function TeamPage() {
       <Navbar />
       <main className="relative min-h-screen bg-background text-foreground">
         {/* Hero */}
-        <div className="px-6 pt-12 pb-4 lg:px-8">
-          <div className="mx-auto max-w-5xl">
+        <div className="px-6 pt-28 pb-4 md:pt-36 lg:px-8">
+          <div className="mx-auto max-w-7xl">
             <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
               Our Team
             </h1>

@@ -12,9 +12,9 @@ export default function ContactPage() {
     <>
       <Navbar />
       <main className="relative min-h-screen bg-background text-foreground">
-        <div className="px-6 pt-32 pb-24 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            {/* Header */}
+        {/* Header */}
+        <div className="px-6 pt-28 md:pt-36 lg:px-8">
+          <div className="mx-auto max-w-7xl">
             <h1 className="text-5xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
               Get in Touch
             </h1>
@@ -22,9 +22,13 @@ export default function ContactPage() {
               Whether you&apos;re a founder, investor, or creative — we&apos;d
               love to connect.
             </p>
+          </div>
+        </div>
 
-            {/* Contact Form */}
-            <form className="mt-12 space-y-6">
+        {/* Contact Form */}
+        <div className="px-6 pt-12 pb-24 lg:px-8">
+          <div className="mx-auto max-w-3xl">
+            <form className="space-y-6">
               <div className="grid gap-6 md:grid-cols-2">
                 <div>
                   <label
